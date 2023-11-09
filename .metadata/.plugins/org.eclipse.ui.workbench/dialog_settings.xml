@@ -13,4 +13,9 @@
 	</section>
 	<section name="ImportExportAction">
 	</section>
+	<section name="EditorSelectionDialog">
+		<item key="EditorSelectionDialog.STORE_ID_FILE_EXTENSION" value=".gradle"/>
+		<item key="EditorSelectionDialog.STORE_ID_INTERNAL_EXTERNAL" value="false"/>
+		<item key="EditorSelectionDialog.STORE_ID_DESCR" value="org.eclipse.buildship.ui.gradlebuildscripteditor"/>
+	</section>
 </section>
