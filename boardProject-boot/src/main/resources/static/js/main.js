@@ -124,3 +124,76 @@ btn2.addEventListener("click", () => {
 	.catch( err => console.log(err) );
 
 });
+
+// -------------------------------------------------------------------------------------------
+
+// 웹소켓 테스트
+// 1. SockJS 라이브러리 추가
+
+// 2. SockJS를 이용해서 클라이언트용 웹소켓 객체 생성
+/*
+let testSock = new SockJS("/testSock");
+
+function sendMessage(name, str) {
+
+    // 매개변수를 JS 객체에 저장
+    let obj = {}; // 비어있는 객체
+
+    obj.name = name; // 객체에 일치하는 key 가 없다면 자동으로 추가
+    obj.str = str;
+
+    //console.log(obj);
+
+    testSock.send( JSON.stringify(obj) );  // JS객체 -> JSON
+
+}
+
+// 웹소켓 객체(testSock)가 서버로 부터 전달받은 메세지가 있는 경우
+testSock.onmessage = e => {
+
+    // e : 이벤트객체
+    // e.data : 전달 받은 메세지(JSON)
+
+    let obj = JSON.parse(e.data); // JSON -> JS객체
+
+    console.log(`보낸사람 : ${obj.name} / ${obj.str}`);
+}
+*/
+
+// 자바스크립트로 쿠키 얻어오기
+function getCookie(key) {
+    const cookies = document.cookie;
+
+    const cookieList = cookies.split(";").map(cookie => cookie.split("="));
+
+    // 배열.map() : 배열의 모든 요소를 순차접근하여 특정 함수 수행 후
+    //              수행 결과를 이용해서 새로운 배열을 만드는 함수
+
+     console.log(cookieList);
+
+     const obj = {};
+
+     for(let i=0; i<cookieList.length; i++) {
+        obj[cookieList[i][0]] = cookieList[i][1];
+     }
+
+     return obj[key];
+
+  
+}
+
+// 쿠키에 saveId가 있을 경우
+if(document.querySelector("input[name='memberEmail']") != null) {
+    // 화면에 memberEmail 입력박스가 있을 경우
+
+    const saveId = getCookie("saveId");
+
+    // 있으면 이메일 값, 없으면 undefined
+
+    if(saveId != undefined) { // 쿠키에 저장된 이메일이 있을 때
+        document.querySelector("input[name='memberEmail']").value = saveId;
+        document.querySelector("input[name='saveId']").checked = true;
+
+    }
+
+}

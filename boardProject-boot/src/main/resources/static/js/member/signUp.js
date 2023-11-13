@@ -143,7 +143,7 @@ memberEmail.addEventListener("input", () => {
         		 emailMessage.classList.remove("error"); // .error 스타일 제거
 				 checkObj.memberEmail = true;
 			} else {
-			 emailMessage.innerText = "이메일 형식이 유효하지 않습니다";
+			 emailMessage.innerText = "이미 사용중입니다";
         	 emailMessage.classList.add("error"); // .error 스타일 적용
         	 emailMessage.classList.remove("confirm"); // .confirm 스타일 제거
 			}	

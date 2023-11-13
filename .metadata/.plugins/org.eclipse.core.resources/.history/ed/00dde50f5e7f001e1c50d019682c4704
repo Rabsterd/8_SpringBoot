@@ -1,0 +1,40 @@
+package edu.kh.project.member.model.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class MemberServiceImpl implements MemberService{
+
+	// org.slf4j.Logger : 로그를 작성할 수 있는 객체
+		// org.slf4j.LoggerFactory
+		private Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
+		
+		// @Autowired : 작성된 필드와
+		// Bean으로 등록된 객체 중 타입이 일치하는 Bean을
+		// 해당 필드에 자동 주입(Injection) 하는 어노테이션.
+		// == DI(Dependency Injection, 의존성 주입)
+		// -> 객체를 직접 만들지 않고, Spring이 만든걸 주입함(Spring에 의존)
+		
+		@Autowired
+		private MemberDAO dao;
+		
+		@Autowired
+		private BCryptPasswordEncoder bcrypt;
+
+		
+		
+		// 회원 가입 서비스
+		@Transactional
+		@Override
+		public int signUp(Member inputMember) {
+			
+			// 비밀번호 암호화 (Bcrypt) 후 다시 inputMember 세팅
+			
+			String encPw = bcrypt.encode(inputMember.getMemberPw());
+			inputMember.setMemberPw(encPw);
+			
+			
+			return dao.signUp(inputMember);
+			
+		}
+}

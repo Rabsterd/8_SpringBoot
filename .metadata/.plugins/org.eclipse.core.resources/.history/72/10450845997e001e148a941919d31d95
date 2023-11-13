@@ -1,0 +1,33 @@
+package edu.kh.project.common.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+import com.zaxxer.hikari.HikariConfig;
+
+@Configuration // 구성
+// 스프링 어플리케이션을 구성하기 위한 설정용 Bean 생성 클래스
+
+@PropertySource("classpath:/config.properties")
+public class DBConfig {
+
+	@Autowired
+	private ApplicationContext applicationContext; // aplication scope 객체
+	
+	@Bean
+	// - 개발자가 수동으로 bean을 등록하는 어노테이션
+	// - @Bean 어노테이션이 작성된 메서드에서는 반환된 객체는
+	// Spring Container가 관리함
+	
+	@ConfigurationProperties(prefix = "spring.datasource.hikari")
+	public HikariConfig hikariConfig() {
+		return new HikariConfig();
+	}
+	
+	
+	
+}
