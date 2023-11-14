@@ -2,3 +2,11 @@
 1699834214469	Delete element
 1699834259754	Rename resource 'signUp.jsp'
 1699835087915	Delete element
+1699920245693	Rename resource 'myPage-changePw.jsp'
+1699920252796	Rename resource 'myPage-info.jsp'
+1699920258800	Rename resource 'myPage-profile.jsp'
+1699920265740	Rename resource 'sideMenu.jsp'
+1699920272530	Rename resource 'myPage-secession.jsp'
+1699921611378	Rename package 'edu.kh.project.common.config.utility'
+1699924353301	Rename compilation unit 'MyPageDAO.java'
+1699924464451	Rename compilation unit 'MyPageMaper.java'
