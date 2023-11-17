@@ -14,3 +14,12 @@
 1700008289626	Delete element
 1700008526838	Copy file
 1700011123860	Delete element
+1700179498587	Delete element
+1700181108504	Rename method 'getListCount'
+1700181626724	Rename method 'selectBoardList'
+1700182887498	Rename resource 'boardDetail.jsp'
+1700182894965	Rename resource 'boardList.jsp'
+1700182901068	Rename resource 'boardUpdate.jsp'
+1700182906363	Rename resource 'boardWrite.jsp'
+1700182913890	Rename resource 'comment.jsp'
+1700188953518	Copy compilation unit
