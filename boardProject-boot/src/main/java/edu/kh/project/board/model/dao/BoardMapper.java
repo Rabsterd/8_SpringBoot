@@ -82,8 +82,11 @@ public interface BoardMapper {
 	 * @param paramMap
 	 * @return
 	 */
-	public List<Board> selectBoardList(Map<String, Object> paramMap, RowBounds rowbounds);
+	public List<Board> selectSearchBoardList(Map<String, Object> paramMap, RowBounds rowbounds);
 
+	/** DB 이미지 파일 목록 조회
+	 * @return
+	 */
 	public List<String> selectImageList();
 
 }

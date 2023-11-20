@@ -7,10 +7,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +24,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import edu.kh.project.board.model.dto.Board;
 import edu.kh.project.board.model.service.BoardService;
 import edu.kh.project.member.model.dto.Member;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @SessionAttributes({"loginMember"})
 @RequestMapping("/board")
@@ -81,7 +80,7 @@ public class BoardController {
 	 * */
 	
 	// 게시글 목록 조회
-	@GetMapping("/{boardCode:[0-9]+}")
+	@GetMapping("/{boardCode:[0-9]+}") // boardCode는 1자리 이상 숫자
 	public String selectBoardList( 
 			@PathVariable("boardCode") int boardCode,
 			@RequestParam(value="cp", required = false, defaultValue = "1") int cp,
@@ -94,7 +93,7 @@ public class BoardController {
 		
 		if( paramMap.get("key") == null ) { // 검색어가 없을 때 (검색 X)
 			
-			// 게시글 목록 조회 서비스
+			// 게시글 목록 조회 서비스 호출
 			Map<String, Object> map = service.selectBoardList(boardCode, cp);
 			
 			// 조회 결과를 request scope에 세팅 후 forward
@@ -104,7 +103,7 @@ public class BoardController {
 			
 			paramMap.put("boardCode", boardCode);
 			
-			Map<String, Object> map = service.selectSearchBoardList(paramMap, cp); // 오버로딩 적용
+			Map<String, Object> map = service.selectBoardList(paramMap, cp); // 오버로딩 적용
 			
 			model.addAttribute("map", map);
 			
@@ -144,11 +143,15 @@ public class BoardController {
 				
 		if(board != null) { // 조회 결과가 있을 경우
 			
+			// --------------------------------------------------
 			// 현재 로그인 상태인 경우
+			// 로그인한 회원이 해당 게시글에 좋아요를 눌렀는지 확인
+			
+			// 로그인 상태인 경우
 			if(loginMember != null) {
 				// 회원번호를 얻어와야 함
 				// map(boardCode, boardNo, memberNo)
-				map.put("memberNo",loginMember.getMemberNo());
+				map.put("memberNo", loginMember.getMemberNo());
 				
 				
 				// 좋아요 여부 확인 서비스 호출
@@ -156,10 +159,13 @@ public class BoardController {
 				
 				// 결과값을 통해 분기처리
 				// 누른 적이 있을 경우 처리
-				// "likeCheck"
+				// "likeCheck" 
 				if(result > 0) model.addAttribute("likeCheck", "on");
 				
+				
 			}
+			
+			// --------------------------------------------------
 			
 			// 쿠키를 이용한 조회 수 증가 처리
 			
@@ -203,7 +209,8 @@ public class BoardController {
 					//Cookie.getValue() : 쿠키에 저장된 모든 값을 읽어옴 -> String으로 반환
 					
 					// String.index("문자열")
-					// : 찾는 문자열이 String 몇번 인덱스에 존재하는 지 반환ㅋ
+					// : 찾는 문자열이 String 몇번 인덱스에 존재하는 지 반환
+					// 단, 없으면 -1 반환
 					if(c.getValue().indexOf("|" + boardNo + "|") == -1) {
 						// 현재 게시글 번호가 쿠키에 없다면
 						
@@ -255,7 +262,7 @@ public class BoardController {
 
 			
 			path = "board/boardDetail"; // forward 할 jsp 경로
-			model.addAttribute("board",board);
+			model.addAttribute("board", board);
 			
 		} else { // 조회 결과가 없을 경우
 			path = "redirect:/board/" + boardCode;

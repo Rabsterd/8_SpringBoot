@@ -118,7 +118,7 @@ public class BoardServiceImpl implements BoardService{
 
 	// 게시글 목록 조회(검색)
 	@Override
-	public Map<String, Object> selectSearchBoardList(Map<String, Object> paramMap, int cp) {
+	public Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp) {
 		
 		// 1. 특정 게시판의 삭제되지 않았고, 검색 조건이 일치하는 게시글 수 조회
 		int listCount = mapper.getSearchListCount(paramMap); // 오버로딩 적용
@@ -131,6 +131,7 @@ public class BoardServiceImpl implements BoardService{
 		// 현재 페이지에 해당하는 부분에 대한 게시글 목록 조회
 		// 단, 검색 조건 일치하는 글만
 		
+		// 1) offset 계산
 		int offset 
 		= (pagination.getCurrentPage() - 1) * pagination.getLimit();
 		
@@ -138,7 +139,7 @@ public class BoardServiceImpl implements BoardService{
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
 		
-		List<Board> boardList = mapper.selectBoardList(paramMap, rowBounds);
+		List<Board> boardList = mapper.selectSearchBoardList(paramMap, rowBounds);
 				
 		// 4. pagination, boardList를 Map에 담아서 반환
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -148,6 +149,7 @@ public class BoardServiceImpl implements BoardService{
 		return map;
 	}
 
+	// DB 이미지 파일 목록 조회
 	@Override
 	public List<String> selectImageList() {
 		

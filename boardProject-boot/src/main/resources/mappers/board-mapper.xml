@@ -283,10 +283,11 @@
 			
 			<when test='key == "w"'>
 				<!-- 작성자(닉네임) -->
-				AND BOARD_NICKNAME LIKE '%${query}%'
+				AND MEMBER_NICKNAME LIKE '%${query}%'
 			</when>
 		</choose>
-
+		
+		ORDER BY BOARD_NO DESC
 	</select>
 	
 	<!-- 이미지 목록 조회 -->
