@@ -1,9 +1,0 @@
-#주석 
-server.port = 80
-server.jsp-servlet.init-parameters.development=true
-
-#ì¤ë¼í´ DB ì°ê²° ì ë³´
-spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
-spring.datasource.url=jdbc:oracle:thin:@IPì£¼ì:í¬í¸ë²í¸/DBì´ë¦
-spring.datasource.username=ê³ì ëª
-spring.datasource.password=ë¹ë°ë²í¸

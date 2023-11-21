@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
-    <fullyQualifiedTypeName name="org.springframework.boot.context.properties.ConfigurationProperties"/>
     <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="com.zaxxer.hikari.HikariConfig"/>
     <fullyQualifiedTypeName name="com.zaxxer.hikari.HikariDataSource"/>
@@ -22,8 +20,6 @@
     <fullyQualifiedTypeName name="org.springframework.mail.javamail.JavaMailSenderImpl"/>
     <fullyQualifiedTypeName name="java.util.Properties"/>
     <fullyQualifiedTypeName name="edu.kh.project.myPage.model.dao.MyPageMapper"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.PropertySource"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
     <fullyQualifiedTypeName name="jakarta.servlet.MultipartConfigElement"/>
     <fullyQualifiedTypeName name="org.springframework.boot.web.servlet.MultipartConfigFactory"/>
     <fullyQualifiedTypeName name="org.springframework.util.unit.DataSize"/>
@@ -41,7 +37,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="edu.kh.project.board.model.service.BoardService"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="edu.kh.project.board.model.dao.BoardMapper"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
@@ -60,4 +55,9 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="edu.kh.project.common.filter.BoardFilter"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.PropertySource"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.FileUploadException"/>
+    <fullyQualifiedTypeName name="edu.kh.project.board.model.dto.BoardImage"/>
 </qualifiedTypeNameHistroy>
