@@ -1,3 +1,5 @@
 1700526467689	Rename type 'BoardDAO2'
 1700526545926	Rename field 'dao'
 1700613037884	Rename type 'CommentDAO'
+1700698408287	Rename type 'ChattingDAO'
+1700698534012	Rename field 'dao'

@@ -1,0 +1,7 @@
+package edu.kh.project.common.interceptor;
+
+import org.springframework.web.socket.server.HandshakeInterceptor;
+
+public class ChattingHandshakeInterceptor implements HandshakeInterceptor{
+
+}

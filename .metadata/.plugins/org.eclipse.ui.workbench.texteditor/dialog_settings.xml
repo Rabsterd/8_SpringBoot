@@ -6,19 +6,21 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="start"/>
+		<item key="selection" value="checkAuthKeyBtn"/>
 		<list key="findhistory">
+			<item value="checkAuthKeyBtn"/>
+			<item value="error"/>
+			<item value="--%&gt;"/>
+			<item value="&lt;%--"/>
 			<item value="start"/>
 			<item value="/resources"/>
-			<item value="&lt;%--"/>
 			<item value="Hash"/>
-			<item value="--%&gt;"/>
 		</list>
 		<list key="replacehistory">
-			<item value=""/>
-			<item value="&lt;!--"/>
-			<item value="&lt;!-"/>
 			<item value="--&gt;"/>
+			<item value="&lt;!--"/>
+			<item value=""/>
+			<item value="&lt;!-"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
